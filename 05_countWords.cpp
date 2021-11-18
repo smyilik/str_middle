@@ -1,13 +1,22 @@
 #include "middle_str.h"
 
-int itc_countWords(string str)
+int itc_countWords(string str) {
+	int ans = 0;
+	str += ' ';
+	for (int i = 0; str[i + 1] != '\0'; i++) {
+		if (itc_isLetter(str[i]) && !itc_isLetter(str[i + 1])) ans++;
+	}
+	return ans;
+}
+
+/*int itc_countWords(string str)
 {
 	long long len = itc_len(str), kol;
 	if (str == "") return 0;
 	else if (((str[0] >= 'A') && (str[0] <= 'Z')) || ((str[0] >= 'a') && (str[0] <= 'z'))) kol = 1;
 	else kol = 0;
 	for (int i = 1; i < len; i++) {
-		if (!(((str[i] >= 'A') && (str[i] <= 'Z')) || ((str[i] >= 'a') && (str[i] <= 'z'))) && (str[i] != ' ')){
+		if (!(((str[i] >= 'A') && (str[i] <= 'Z')) || ((str[i] >= 'a') && (str[i] <= 'z'))) && (str[i] != ' ')) {
 			kol -= 2;
 		}
 		if (!(((str[i - 1] >= 'A') && (str[i - 1] <= 'Z')) || ((str[i - 1] >= 'a') && (str[i - 1] <= 'z'))) && (((str[i] >= 'A') && (str[i] <= 'Z')) || ((str[i] >= 'a') && (str[i] <= 'z')))) {
@@ -15,4 +24,4 @@ int itc_countWords(string str)
 		}
 	}
 	return kol;
-}
+}*/
