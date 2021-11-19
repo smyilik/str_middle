@@ -10,5 +10,6 @@ string itc_rmFreeSpace(string str)
     for (i; i < len; i++) {
         if ((i != len - 1) && ((str[i] != ' ') || (str[i + 1] != ' '))) otv += str[i];
     }
+    if (str[len - 1] != ' ') otv += str[len - 1];
     return otv;
 }
